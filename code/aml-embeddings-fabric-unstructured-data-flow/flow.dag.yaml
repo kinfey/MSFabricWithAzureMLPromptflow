@@ -1,0 +1,55 @@
+inputs:
+  files:
+    type: string
+    default: Files/docs/microsoft-fabric-overview.md
+outputs:
+  result:
+    type: string
+    reference: ${save_embbeddings_data.output}
+nodes:
+- name: load_md_data
+  type: python
+  source:
+    type: code
+    path: load_md_data.py
+  inputs:
+    files: ${inputs.files}
+    azureml_conn: AzureMLConnection
+- name: AOAILLM
+  type: llm
+  source:
+    type: code
+    path: AOAILLM.jinja2
+  inputs:
+    deployment_name: GPT3Model
+    stop: []
+    temperature: 0.1
+    max_tokens: 13000
+    md_content: ${load_md_data.output}
+  connection: AzureOpenAIConnection
+  api: chat
+- name: convert_to_json
+  type: python
+  source:
+    type: code
+    path: convert_to_json.py
+  inputs:
+    result: ${AOAILLM.output}
+- name: embedding_qa
+  type: python
+  source:
+    type: code
+    path: embedding_qa.py
+  inputs:
+    aoai_conn: AzureOpenAIConnection
+    kb_list: ${convert_to_json.output}
+  aggregation: false
+- name: save_embbeddings_data
+  type: python
+  source:
+    type: code
+    path: save_embbeddings_data.py
+  inputs:
+    cogconn: AzureAISearchConnection
+    vector_json: ${embedding_qa.output}
+  aggregation: false

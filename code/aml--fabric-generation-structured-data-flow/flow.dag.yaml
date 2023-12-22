@@ -1,0 +1,38 @@
+id: template_standard_flow
+name: Template Standard Flow
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  question:
+    type: string
+    default: Generate a bar chart to list Product Type and display the number of
+      products owned by the corresponding Product
+  csv:
+    type: string
+    default: ProductList.csv
+outputs:
+  result:
+    type: string
+    reference: ${llm_node_gpt4.output}
+nodes:
+- name: load_lakehouse_data
+  type: python
+  source:
+    type: code
+    path: load_lakehouse_data.py
+  inputs:
+    azureml_conn: AzureMLConnection
+    file: ${inputs.csv}
+- name: llm_node_gpt4
+  type: llm
+  source:
+    type: code
+    path: llm_node_gpt4.jinja2
+  inputs:
+    deployment_name: GPT4Model
+    file: ${load_lakehouse_data.output}
+    question: ${inputs.question}
+    temperature: 0.6
+    max_tokens: 13000
+  connection: AzureOpenAIConnection
+  api: chat

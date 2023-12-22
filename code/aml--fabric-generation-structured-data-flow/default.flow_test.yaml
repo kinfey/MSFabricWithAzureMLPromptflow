@@ -1,0 +1,9 @@
+tests:
+  - name: embeddings-data-flow_default_20231221_092945_080000
+    display_name: embeddings-data-flow_${variant_id}_${timestamp}
+    flow: /home/lokinfey/Dev/Code/AOAI/FabricWithAzureML/embeddings-data-flow
+    data: /home/lokinfey/Dev/Code/AOAI/FabricWithAzureML/embeddings-data-flow
+    column_mapping:
+      question: Generate a bar chart to list Product Type and display the number of
+        products owned by the corresponding Product
+      csv: ProductList.csv

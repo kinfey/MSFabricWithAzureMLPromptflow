@@ -1,0 +1,46 @@
+2023-12-21 20:41:35 +0800  310828 execution.flow     INFO     Executing node save_embbeddings_data. node run id: d34af12e-25e9-4c22-af73-69dac4d94c22_save_embbeddings_data_20b3071b-5946-43e2-8a18-de6e95467d13
+2023-12-21 20:41:35 +0800  310828 execution          WARNING  [save_embbeddings_data in line None (index starts from 0)] stderr> hnsw_parameters is not a known attribute of class <class 'azure.search.documents.indexes._generated.models._models_py3.HnswAlgorithmConfiguration'> and will be ignored
+2023-12-21 20:41:35 +0800  310828 execution          WARNING  [save_embbeddings_data in line None (index starts from 0)] stderr> algorithm is not a known attribute of class <class 'azure.search.documents.indexes._generated.models._models_py3.VectorSearch'> and will be ignored
+2023-12-21 20:41:36 +0800  310828 execution          ERROR    Node save_embbeddings_data in line None failed. Exception: Execution failure in 'save_embbeddings_data': (HttpResponseError) (InvalidRequestParameter) The request is invalid. Details: definition : The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined.
+Code: InvalidRequestParameter
+Message: The request is invalid. Details: definition : The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined.
+Exception Details:	(UnknownVectorAlgorithmConfiguration) The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined. Parameters: definition
+	Code: UnknownVectorAlgorithmConfiguration
+	Message: The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined. Parameters: definition.
+Traceback (most recent call last):
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/promptflow/_core/flow_execution_context.py", line 185, in _invoke_tool_with_timer
+    return f(**kwargs)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/promptflow/_core/tool.py", line 106, in decorated_tool
+    output = func(*args, **kwargs)
+  File "/home/lokinfey/Dev/Code/AOAI/FabricWithAzureML/EmbeddingUnStructuredData/save_embbeddings_data.py", line 86, in save_data_embeddings
+    initSearch(service_endpoint,index_name,credential)
+  File "/home/lokinfey/Dev/Code/AOAI/FabricWithAzureML/EmbeddingUnStructuredData/save_embbeddings_data.py", line 77, in initSearch
+    result = index_client.create_or_update_index(index)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/search/documents/indexes/_search_index_client.py", line 264, in create_or_update_index
+    result = self._client.indexes.create_or_update(
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/search/documents/indexes/_generated/operations/_indexes_operations.py", line 715, in create_or_update
+    raise HttpResponseError(response=response, model=error)
+azure.core.exceptions.HttpResponseError: (InvalidRequestParameter) The request is invalid. Details: definition : The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined.
+Code: InvalidRequestParameter
+Message: The request is invalid. Details: definition : The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined.
+Exception Details:	(UnknownVectorAlgorithmConfiguration) The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined. Parameters: definition
+	Code: UnknownVectorAlgorithmConfiguration
+	Message: The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined. Parameters: definition
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/promptflow/_core/flow_execution_context.py", line 89, in invoke_tool
+    result = self._invoke_tool_with_timer(node, f, kwargs)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/promptflow/_core/flow_execution_context.py", line 196, in _invoke_tool_with_timer
+    raise ToolExecutionError(node_name=node_name, module=module) from e
+promptflow._core._errors.ToolExecutionError: Execution failure in 'save_embbeddings_data': (HttpResponseError) (InvalidRequestParameter) The request is invalid. Details: definition : The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined.
+Code: InvalidRequestParameter
+Message: The request is invalid. Details: definition : The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined.
+Exception Details:	(UnknownVectorAlgorithmConfiguration) The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined. Parameters: definition
+	Code: UnknownVectorAlgorithmConfiguration
+	Message: The field 'KBVector' uses a vector search algorithm configuration 'myHnsw' which is not defined. Parameters: definition

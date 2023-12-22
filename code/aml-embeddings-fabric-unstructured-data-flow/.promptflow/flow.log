@@ -1,0 +1,15 @@
+2023-12-21 20:49:25 +0800  314642 execution.flow     INFO     Start executing nodes in thread pool mode.
+2023-12-21 20:49:25 +0800  314642 execution.flow     INFO     Start to run 5 nodes with concurrency level 16.
+2023-12-21 20:49:25 +0800  314642 execution.flow     INFO     Executing node load_md_data. node run id: 1c7dc4f3-811d-41ea-a883-b537452d6539_load_md_data_0
+2023-12-21 20:49:30 +0800  314642 execution          WARNING  [load_md_data in line 0 (index starts from 0)] stderr> Warning: Falling back to use azure cli login credentials.
+If you run your code in unattended mode, i.e., where you can't give a user input, then we recommend to use ServicePrincipalAuthentication or MsiAuthentication.
+Please refer to aka.ms/aml-notebook-auth for different authentication mechanisms in azureml-sdk.
+2023-12-21 20:49:48 +0800  314642 execution.flow     INFO     Node load_md_data completes.
+2023-12-21 20:49:48 +0800  314642 execution.flow     INFO     Executing node AOAILLM. node run id: 1c7dc4f3-811d-41ea-a883-b537452d6539_AOAILLM_0
+2023-12-21 20:49:58 +0800  314642 execution.flow     INFO     Node AOAILLM completes.
+2023-12-21 20:49:58 +0800  314642 execution.flow     INFO     Executing node convert_to_json. node run id: 1c7dc4f3-811d-41ea-a883-b537452d6539_convert_to_json_0
+2023-12-21 20:49:58 +0800  314642 execution.flow     INFO     Node convert_to_json completes.
+2023-12-21 20:49:58 +0800  314642 execution.flow     INFO     Executing node embedding_qa. node run id: 1c7dc4f3-811d-41ea-a883-b537452d6539_embedding_qa_0
+2023-12-21 20:50:03 +0800  314642 execution.flow     INFO     Node embedding_qa completes.
+2023-12-21 20:50:03 +0800  314642 execution.flow     INFO     Executing node save_embbeddings_data. node run id: 1c7dc4f3-811d-41ea-a883-b537452d6539_save_embbeddings_data_0
+2023-12-21 20:50:07 +0800  314642 execution.flow     INFO     Node save_embbeddings_data completes.

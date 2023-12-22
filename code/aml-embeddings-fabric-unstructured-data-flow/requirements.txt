@@ -1,0 +1,5 @@
+azure-ai-ml
+azureml-fsspec
+azure-search-documents
+mltable
+keyrings.alt

@@ -1,0 +1,25 @@
+{
+  "nodes": {
+    "Embedding_Question": {
+      "variant_0": {
+        "inputs": {
+          "input": []
+        }
+      }
+    },
+    "search_kb": {
+      "variant_0": {
+        "inputs": {
+          "questionvector": []
+        }
+      }
+    },
+    "Chat": {
+      "variant_0": {
+        "inputs": {
+          "answer": []
+        }
+      }
+    }
+  }
+}

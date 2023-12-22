@@ -1,0 +1,40 @@
+{
+  "nodes": {
+    "load_md_data": {
+      "variant_0": {
+        "inputs": {
+          "files": []
+        }
+      }
+    },
+    "AOAILLM": {
+      "variant_0": {
+        "inputs": {
+          "md_content": []
+        }
+      }
+    },
+    "convert_to_json": {
+      "variant_0": {
+        "inputs": {
+          "result": []
+        }
+      }
+    },
+    "embedding_qa": {
+      "variant_0": {
+        "inputs": {
+          "kb_list": []
+        }
+      }
+    },
+    "save_embbeddings_data": {
+      "variant_0": {
+        "inputs": {
+          "input1": [],
+          "vector_json": []
+        }
+      }
+    }
+  }
+}

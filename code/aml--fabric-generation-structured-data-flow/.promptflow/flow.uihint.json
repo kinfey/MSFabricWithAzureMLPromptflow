@@ -1,0 +1,21 @@
+{
+  "nodes": {
+    "load_lakehouse_data": {
+      "variant_0": {
+        "inputs": {
+          "input1": [],
+          "status": [],
+          "file": []
+        }
+      }
+    },
+    "llm_node_gpt4": {
+      "variant_0": {
+        "inputs": {
+          "file": [],
+          "question": []
+        }
+      }
+    }
+  }
+}

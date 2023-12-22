@@ -1,0 +1,79 @@
+{
+  "package": {},
+  "code": {
+    "load_md_data.py": {
+      "type": "python",
+      "inputs": {
+        "files": {
+          "type": [
+            "string"
+          ]
+        },
+        "azureml_conn": {
+          "type": [
+            "CustomConnection"
+          ]
+        }
+      },
+      "source": "load_md_data.py",
+      "function": "load_md_data"
+    },
+    "AOAILLM.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "md_content": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "AOAILLM.jinja2"
+    },
+    "convert_to_json.py": {
+      "type": "python",
+      "inputs": {
+        "result": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "convert_to_json.py",
+      "function": "convert_to_json"
+    },
+    "embedding_qa.py": {
+      "type": "python",
+      "inputs": {
+        "kb_list": {
+          "type": [
+            "object"
+          ]
+        },
+        "aoai_conn": {
+          "type": [
+            "AzureOpenAIConnection"
+          ]
+        }
+      },
+      "source": "embedding_qa.py",
+      "function": "embedd_data"
+    },
+    "save_embbeddings_data.py": {
+      "type": "python",
+      "inputs": {
+        "vector_json": {
+          "type": [
+            "object"
+          ]
+        },
+        "cogconn": {
+          "type": [
+            "CognitiveSearchConnection"
+          ]
+        }
+      },
+      "source": "save_embbeddings_data.py",
+      "function": "save_data_embeddings"
+    }
+  }
+}

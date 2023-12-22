@@ -1,0 +1,58 @@
+2023-12-21 21:24:04 +0800  329886 execution.flow     INFO     Start executing nodes in thread pool mode.
+2023-12-21 21:24:04 +0800  329886 execution.flow     INFO     Start to run 3 nodes with concurrency level 16.
+2023-12-21 21:24:04 +0800  329886 execution.flow     INFO     Executing node Embedding_Question. node run id: c82db481-98cd-4bbb-8d36-2240e23ef116_Embedding_Question_0
+2023-12-21 21:24:06 +0800  329886 execution.flow     INFO     Node Embedding_Question completes.
+2023-12-21 21:24:06 +0800  329886 execution.flow     INFO     Executing node search_kb. node run id: c82db481-98cd-4bbb-8d36-2240e23ef116_search_kb_0
+2023-12-21 21:24:06 +0800  329886 execution          ERROR    Node search_kb in line 0 failed. Exception: Execution failure in 'search_kb': (TypeError) request() got an unexpected keyword argument 'vector'.
+Traceback (most recent call last):
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/promptflow/_core/flow_execution_context.py", line 185, in _invoke_tool_with_timer
+    return f(**kwargs)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/promptflow/_core/tool.py", line 106, in decorated_tool
+    output = func(*args, **kwargs)
+  File "/home/lokinfey/Dev/Code/AOAI/FabricWithAzureML/aml-chat-fabric-unstructured-data-flow/search_kb.py", line 24, in search_kb
+    for result in results:
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/search/documents/_paging.py", line 54, in __next__
+    return next(self._page_iterator)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/paging.py", line 75, in __next__
+    self._response = self._get_next(self.continuation_token)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/search/documents/_paging.py", line 124, in _get_next_cb
+    return self._client.documents.search_post(search_request=self._initial_query.request, **self._kwargs)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/tracing/decorator.py", line 78, in wrapper_use_tracer
+    return func(*args, **kwargs)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/search/documents/_generated/operations/_documents_operations.py", line 747, in search_post
+    pipeline_response: PipelineResponse = self._client._pipeline.run(  # pylint: disable=protected-access
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/_base.py", line 230, in run
+    return first_node.send(pipeline_request)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/_base.py", line 86, in send
+    response = self.next.send(request)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/_base.py", line 86, in send
+    response = self.next.send(request)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/_base.py", line 86, in send
+    response = self.next.send(request)
+  [Previous line repeated 2 more times]
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/policies/_redirect.py", line 197, in send
+    response = self.next.send(request)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/policies/_retry.py", line 531, in send
+    response = self.next.send(request)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/_base.py", line 86, in send
+    response = self.next.send(request)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/_base.py", line 86, in send
+    response = self.next.send(request)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/_base.py", line 86, in send
+    response = self.next.send(request)
+  [Previous line repeated 2 more times]
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/_base.py", line 119, in send
+    self._sender.send(request.http_request, **request.context.options),
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/azure/core/pipeline/transport/_requests_basic.py", line 343, in send
+    response = self.session.request(  # type: ignore
+TypeError: request() got an unexpected keyword argument 'vector'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/promptflow/_core/flow_execution_context.py", line 89, in invoke_tool
+    result = self._invoke_tool_with_timer(node, f, kwargs)
+  File "/home/lokinfey/conda/envs/amlenv/lib/python3.8/site-packages/promptflow/_core/flow_execution_context.py", line 196, in _invoke_tool_with_timer
+    raise ToolExecutionError(node_name=node_name, module=module) from e
+promptflow._core._errors.ToolExecutionError: Execution failure in 'search_kb': (TypeError) request() got an unexpected keyword argument 'vector'
+2023-12-21 21:24:06 +0800  329886 execution          ERROR    Execution of one node has failed. Cancelling all running nodes: search_kb.

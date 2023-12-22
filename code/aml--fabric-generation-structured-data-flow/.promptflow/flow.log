@@ -1,0 +1,9 @@
+2023-12-21 09:30:09 +0800   38641 execution.flow     INFO     Start executing nodes in thread pool mode.
+2023-12-21 09:30:09 +0800   38641 execution.flow     INFO     Start to run 2 nodes with concurrency level 16.
+2023-12-21 09:30:09 +0800   38641 execution.flow     INFO     Executing node load_lakehouse_data. node run id: fa50d682-690d-4004-8c29-9ed70a56de8b_load_lakehouse_data_0
+2023-12-21 09:30:10 +0800   38302 execution.flow     INFO     Node load_lakehouse_data completes.
+2023-12-21 09:30:10 +0800   38302 execution.flow     INFO     Executing node llm_node_gpt4. node run id: 422dcc0f-e4e2-49df-aa6c-c8c46f6496ae_llm_node_gpt4_0
+2023-12-21 09:30:11 +0800   38641 execution.flow     INFO     Node load_lakehouse_data completes.
+2023-12-21 09:30:11 +0800   38641 execution.flow     INFO     Executing node llm_node_gpt4. node run id: fa50d682-690d-4004-8c29-9ed70a56de8b_llm_node_gpt4_0
+2023-12-21 09:30:21 +0800   38302 execution.flow     INFO     Node llm_node_gpt4 completes.
+2023-12-21 09:30:27 +0800   38641 execution.flow     INFO     Node llm_node_gpt4 completes.
